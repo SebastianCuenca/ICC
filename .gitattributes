@@ -1,2 +1,38 @@
+import time
+
+nombre1=input("Ingresa el nombre del jugador 1: ")
+nombre2=input("Ingresa el nombre del jugador 2: ")
+
+print("Hola, "+nombre1," y  "+nombre2," empecemos el juego de ahorcado "  )
+print("")
+time.sleep(2)
+print("Jugadores "+nombre1," y "+nombre2,",la palabra secreta es el nombre de una pelicula, empiecen a adivinar!! ")
+time.sleep(5)
+palabra="titanic"
+tupalabra=""
+vidas=7
+
+while vidas > 0:
+   fallas=0
+   for letra in palabra:
+       if letra in tupalabra:
+           print(letra,end="")
+       else:
+           print("*",end="")
+           fallas+=1
+   if fallas ==0:
+       print("Muy bien, lo has logrado")
+       break
+   tuletra=input("Introduce una letra: ")
+   tupalabra+=tuletra
+
+   if tuletra not in palabra:
+       vidas-=1
+       print("Equivocado")
+       print("Te quedan, ", vidas," vidas")
+       if vidas ==0:
+           print("Perdiste")
+else:
+   print("Gracias por jugar")
 # Auto detect text files and perform LF normalization
 * text=auto
